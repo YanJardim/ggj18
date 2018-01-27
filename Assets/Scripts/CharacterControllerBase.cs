@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Character : MonoBehaviour {
+public class CharacterControllerBase : MonoBehaviour {
     public float speed;
     protected Rigidbody2D rb;
 
