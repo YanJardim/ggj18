@@ -10,13 +10,7 @@ public class StrongCharacter : CharacterControllerBase {
     public float rayLength;
     private bool isFirePressed;
 
-    new void Update() {
-        base.Update();
-        if(currentObject != null) {
-            currentObject.transform.position = new Vector2(currentObject.transform.position.x * facingDirection,
-                                                            currentObject.transform.position.y);
-        }
-    }
+    
     // Update is called once per frame
     new void FixedUpdate() {
         base.FixedUpdate();
