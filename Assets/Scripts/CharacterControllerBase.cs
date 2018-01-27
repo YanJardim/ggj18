@@ -8,8 +8,11 @@ public class CharacterControllerBase : MonoBehaviour {
     protected bool possessed;
     private float oldSpeed;
 
+    protected Altar altar;
+
     protected void Start() {
         possessed = false;
+        altar = null;
         rb = GetComponent<Rigidbody2D>();
         facingDirection = 1;
         oldDirection = 1;
@@ -20,6 +23,12 @@ public class CharacterControllerBase : MonoBehaviour {
             return;
         }
 
+        if (altar && Input.GetKeyDown(KeyCode.E)) {
+            Debug.Log("Alter Try Use");
+            if (altar.Use()) {
+                Depossess();
+            }
+        }
         UpdateFacingDirection();
     }
 
@@ -29,26 +38,29 @@ public class CharacterControllerBase : MonoBehaviour {
         }
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y);
     }
+
     public void Depossess() {
         possessed = false;
-
         GameManager.Instance.SpawnSpirit(transform.position);
     }
+
     public void OnDestroy() {
         if (possessed) {
             Depossess();
         }
     }
 
-    void OnTriggerStay2D(Collider2D other) {
+    void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Altar") {
-            Debug.Log("OnColl");
+            altar = other.gameObject.GetComponent<Altar>();
+            Debug.Log("entered altar");
         }
-        if (other.gameObject.tag == "Altar" && Input.GetKeyDown(KeyCode.E)) {
-            Debug.Log("Alter Try Use");
-            if (other.gameObject.GetComponent<Altar>().Use()) {
-                Depossess();
-            }
+    }
+    
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.tag == "Altar") {
+            altar = null;
+            Debug.Log("exited altar");
         }
     }
 
