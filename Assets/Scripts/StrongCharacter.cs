@@ -8,11 +8,15 @@ public class StrongCharacter : CharacterControllerBase {
     public GameObject currentObject;
     public float rayLength;
     private bool isFirePressed;
-    private float oldSpeed;
 
     // Update is called once per frame
     new void FixedUpdate() {
         base.FixedUpdate();
+
+        if (!possessed) {
+            return;
+        }
+
         GetInput();
     }
 

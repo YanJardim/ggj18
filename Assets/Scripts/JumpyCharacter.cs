@@ -15,6 +15,10 @@ public class JumpyCharacter : CharacterControllerBase {
     public new void FixedUpdate() {
         base.FixedUpdate();
 
+        if (!possessed) {
+            return;
+        }
+
         if (isGrounded()) {
             if (Input.GetAxis("Fire1") != 0 && canJump) {
                 rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);

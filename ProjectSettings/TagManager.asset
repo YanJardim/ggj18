@@ -7,6 +7,8 @@ TagManager:
   - Box
   - Plate
   - Water
+  - Spirit
+  - Character
   layers:
   - Default
   - TransparentFX
@@ -18,8 +20,8 @@ TagManager:
   - 
   - Ground
   - Box
-  - 
-  - 
+  - Wall
+  - Spirit
   - 
   - 
   - 

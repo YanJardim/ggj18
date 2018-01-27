@@ -9,6 +9,9 @@ public class SwimmerController : CharacterControllerBase {
 
     public new void FixedUpdate() {
         if (onWater) {
+            if (!possessed) {
+                return;
+            }
             rb.velocity += new Vector2(Input.GetAxis("Horizontal") * speedOnWater,
                         Input.GetAxis("Vertical") * speedOnWater);
         } else {
