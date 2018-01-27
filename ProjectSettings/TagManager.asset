@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Spirit
   - Character
+  - Altar
   layers:
   - Default
   - TransparentFX

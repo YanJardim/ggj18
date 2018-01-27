@@ -29,16 +29,33 @@ public class CharacterControllerBase : MonoBehaviour {
         }
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y);
     }
+    public void Depossess() {
+        possessed = false;
 
+        GameManager.Instance.SpawnSpirit(transform.position);
+    }
     public void OnDestroy() {
         if (possessed) {
-            GameManager.Instance.SpawnSpirit(transform.position);
+            Depossess();
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other) {
+        if (other.gameObject.tag == "Altar") {
+            Debug.Log("OnColl");
+        }
+        if (other.gameObject.tag == "Altar" && Input.GetKeyDown(KeyCode.E)) {
+            Debug.Log("Alter Try Use");
+            if (other.gameObject.GetComponent<Altar>().Use()) {
+                Depossess();
+            }
         }
     }
 
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Spirit") {
-            possessed = true;
+            if(other.gameObject.GetComponent<SpiritController>().possessionCooldown >= 0)
+                possessed = true;
         }
     }
 
@@ -46,6 +63,7 @@ public class CharacterControllerBase : MonoBehaviour {
         oldSpeed = speed;
         speed = newSpeed;
     }
+
     protected void SpeedRevert() {
         speed = oldSpeed;
     }
