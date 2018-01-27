@@ -3,26 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PressurePlate : MonoBehaviour {
-    public bool activated;
-
-	void Start () {
-        activated = false;
-	}
-	
-	// Update is called once per frame
-	public void FixedUpdate () {
-	}
+    public Activatable activatable;
 
     public void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Box") {
-            Debug.Log("enter");
-            activated = true;
+            Debug.Log("Plate pressured");
+            activatable.Activate();
         }
     }
     public void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "Box") {
-            Debug.Log("exit");
-            activated = false;
+            Debug.Log("Plate depressured");
+            activatable.Deactivate();
         }
     }
 }

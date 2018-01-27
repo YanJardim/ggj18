@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 279042420}
   - component: {fileID: 279042425}
   m_Layer: 0
-  m_Name: Smasher
+  m_Name: FallingBox
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39db44626873e4b44affd496133887a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
+  activatable: {fileID: 279042425}
 --- !u!23 &1130012578
 MeshRenderer:
   m_ObjectHideFlags: 0

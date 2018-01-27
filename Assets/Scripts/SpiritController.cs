@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class SpiritController : CharacterControllerBase {
 
-    public void Awake() {
+    public new void Start() {
+        base.Start();
+
         GameManager.Instance.spirit = this.gameObject;
     }
 

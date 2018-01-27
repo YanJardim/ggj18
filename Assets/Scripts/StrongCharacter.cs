@@ -23,7 +23,7 @@ public class StrongCharacter : CharacterControllerBase {
 
     private void GetInput() {
         Debug.DrawLine(transform.position,
-                      (Vector2)transform.position + ((Vector2)transform.right * facingDirection) * rayLength,
+                      (Vector2)transform.position + ((Vector2)transform.right) * rayLength,
                       Color.yellow);
 
         if (Input.GetAxisRaw("Fire1") != 0) {
@@ -40,7 +40,7 @@ public class StrongCharacter : CharacterControllerBase {
 
     private RaycastHit2D GetObjectInFront() {
         return Physics2D.Raycast(transform.position,
-                                ((Vector2)transform.right * facingDirection) * rayLength,
+                                ((Vector2)transform.right) * rayLength,
                                 rayLength,
                                 rayLayer);
     }
@@ -66,7 +66,7 @@ public class StrongCharacter : CharacterControllerBase {
     private void SelectObject(GameObject obj) {
         currentObject = obj;
         currentObject.transform.SetParent(transform);
-        currentObject.transform.localPosition = new Vector2(objectCarriedPosition.x * facingDirection, 
+        currentObject.transform.localPosition = new Vector2(objectCarriedPosition.x, 
                                                             objectCarriedPosition.y);
         currentObject.GetComponent<Rigidbody2D>().isKinematic = true;
         SpeedChange(carringSpeed);

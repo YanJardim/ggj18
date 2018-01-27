@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingBox : MonoBehaviour {
+public class FallingBox : Activatable {
 
     public Rigidbody2D rb;
 
@@ -12,20 +12,21 @@ public class FallingBox : MonoBehaviour {
     void Start () {
         rb = this.GetComponent<Rigidbody2D>();
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        Active();
-	}
 
-    public void Active() {
-        if(plate.activated)
-            rb.gravityScale = 1;
+    public override void Activate() {
+        rb.gravityScale = 1;
     }
+    public override void Deactivate() {
+    }
+
     public void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Character") {
-            Debug.Log("Destroy");
-            Destroy(other.gameObject);
+            if (rb.velocity.y <= -5) {
+                Debug.Log("Destroy");
+                Destroy(other.gameObject);
+            } else {
+                Debug.Log("Weak FallingBox Hit");
+            }
         }
     }
 }
