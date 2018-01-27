@@ -700,6 +700,11 @@ Prefab:
       propertyPath: possessionCooldown
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 114706334213660522, guid: 8368b66fab2e16d48adcb0776d47e4b6,
+        type: 2}
+      propertyPath: depossessSpeed
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8368b66fab2e16d48adcb0776d47e4b6, type: 2}
   m_IsPrefabParent: 0

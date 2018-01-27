@@ -142,3 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  facingDirection: 0
+  oldDirection: 0
+  depossessSpeed: 1000
+  possessionCooldown: 0.2
+  possessionCD: 0

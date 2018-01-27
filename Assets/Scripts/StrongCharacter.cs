@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StrongCharacter : CharacterControllerBase {
     public float carringSpeed;
-    public LayerMask rayLayer = LayerMask.NameToLayer("Box");
+    public LayerMask rayLayer;
     public GameObject currentObject;
     public Vector2 objectCarriedPosition;
     public float rayLength = 1.0f;

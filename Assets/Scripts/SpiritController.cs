@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public class SpiritController : CharacterControllerBase {
+    public float depossessSpeed;
+
     public float possessionCooldown;
     [HideInInspector]
     public float possessionCD;
@@ -33,7 +35,7 @@ public class SpiritController : CharacterControllerBase {
             col.enabled = true;
         }
         if(possessionCD > 0) {
-            rb.AddForce(Vector2.up *1200 * (possessionCD / possessionCooldown));
+            rb.AddForce(Vector2.up * depossessSpeed * (possessionCD / possessionCooldown));
         }
 
     }
