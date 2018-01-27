@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1532503436834232}
+  m_RootGameObject: {fileID: 1416410737683006}
   m_IsPrefabParent: 1
---- !u!1 &1532503436834232
+--- !u!1 &1416410737683006
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4014552237881106}
-  - component: {fileID: 33551968456650506}
-  - component: {fileID: 23529424537491976}
-  - component: {fileID: 114399187967825356}
-  - component: {fileID: 61805001260542442}
-  - component: {fileID: 50523236336006182}
+  - component: {fileID: 4296570657581322}
+  - component: {fileID: 33207504060628310}
+  - component: {fileID: 23234614861908204}
+  - component: {fileID: 114722119043578300}
+  - component: {fileID: 61731851492913848}
+  - component: {fileID: 50265484416977978}
   m_Layer: 0
-  m_Name: Swimmer
+  m_Name: Strong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4014552237881106
+--- !u!4 &4296570657581322
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532503436834232}
+  m_GameObject: {fileID: 1416410737683006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7, y: -1.65, z: 0.12426537}
+  m_LocalPosition: {x: -1.0145916, y: 0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23529424537491976
+--- !u!23 &23234614861908204
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532503436834232}
+  m_GameObject: {fileID: 1416410737683006}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -78,39 +78,39 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33551968456650506
+--- !u!33 &33207504060628310
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532503436834232}
+  m_GameObject: {fileID: 1416410737683006}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!50 &50523236336006182
+--- !u!50 &50265484416977978
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532503436834232}
+  m_GameObject: {fileID: 1416410737683006}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!61 &61805001260542442
+  m_Constraints: 0
+--- !u!61 &61731851492913848
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532503436834232}
+  m_GameObject: {fileID: 1416410737683006}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -130,17 +130,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114399187967825356
+--- !u!114 &114722119043578300
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532503436834232}
+  m_GameObject: {fileID: 1416410737683006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ddc21d95e316cc4ea52ad0240c919c6, type: 3}
+  m_Script: {fileID: 11500000, guid: d8f362760252e644dbffb0b19e12dfe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  speedOnWater: 0.1
-  gravityScaleOnWater: 0.02
+  speed: 4
+  carringSpeed: 3
+  rayLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  currentObject: {fileID: 0}
+  rayLength: 1

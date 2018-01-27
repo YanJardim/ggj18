@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StrongCharacter : CharacterControllerBase {
-
+    public float carringSpeed;
     public LayerMask rayLayer;
     public GameObject currentObject;
     public float rayLength;
     private bool isFirePressed;
+    private float oldSpeed;
 
     // Update is called once per frame
     new void FixedUpdate() {
@@ -44,6 +45,7 @@ public class StrongCharacter : CharacterControllerBase {
             currentObject.GetComponent<Rigidbody2D>().isKinematic = false;
             currentObject.transform.SetParent(null);
             currentObject = null;
+            SpeedRevert();
         } else {
             RaycastHit2D hit = GetObjectInFront();
             if (hit.collider != null) {
@@ -51,6 +53,7 @@ public class StrongCharacter : CharacterControllerBase {
                 currentObject.transform.SetParent(transform);
                 currentObject.transform.localPosition = new Vector2(1.2f, 0.1f);
                 currentObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                SpeedChange(carringSpeed);
             }
         } 
     }
