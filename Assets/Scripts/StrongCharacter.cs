@@ -6,10 +6,10 @@ public class StrongCharacter : CharacterControllerBase {
     public float carringSpeed;
     public LayerMask rayLayer;
     public GameObject currentObject;
+    public Vector2 objectCarriedPosition;
     public float rayLength;
     private bool isFirePressed;
-    private float oldSpeed;
-
+    
     // Update is called once per frame
     new void FixedUpdate() {
         base.FixedUpdate();
@@ -42,20 +42,28 @@ public class StrongCharacter : CharacterControllerBase {
 
     private void CarryObject() {
         if(currentObject != null) {
-            currentObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            currentObject.transform.SetParent(null);
-            currentObject = null;
-            SpeedRevert();
+            UnselectObject();
         } else {
             RaycastHit2D hit = GetObjectInFront();
             if (hit.collider != null) {
-                currentObject = hit.collider.gameObject;
-                currentObject.transform.SetParent(transform);
-                currentObject.transform.localPosition = new Vector2(1.2f, 0.1f);
-                currentObject.GetComponent<Rigidbody2D>().isKinematic = true;
-                SpeedChange(carringSpeed);
+                SelectObject(hit.collider.gameObject);
             }
         } 
+    }
+
+    private void UnselectObject() {
+        currentObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        currentObject.transform.SetParent(null);
+        currentObject = null;
+        SpeedRevert();
+    }
+
+    private void SelectObject(GameObject obj) {
+        currentObject = obj;
+        currentObject.transform.SetParent(transform);
+        currentObject.transform.localPosition = objectCarriedPosition;
+        currentObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        SpeedChange(carringSpeed);
     }
 
 }
