@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 239440559}
   - component: {fileID: 239440564}
   m_Layer: 0
-  m_Name: plaia
+  m_Name: Strong
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 279042420}
   - component: {fileID: 279042425}
   m_Layer: 0
-  m_Name: Smash
+  m_Name: Smasher
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 394140144}
   - component: {fileID: 394140143}
   m_Layer: 0
-  m_Name: BoxBox
+  m_Name: Box
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
