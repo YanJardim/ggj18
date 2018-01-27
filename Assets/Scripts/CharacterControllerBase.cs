@@ -9,7 +9,6 @@ public class CharacterControllerBase : MonoBehaviour {
     }
 
     public void FixedUpdate() {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0);
-
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
     }
 }
