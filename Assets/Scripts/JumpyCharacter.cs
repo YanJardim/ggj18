@@ -20,9 +20,10 @@ public class JumpyCharacter : CharacterControllerBase {
         }
 
         if (isGrounded()) {
-            if (Input.GetAxis("Fire1") != 0 && canJump) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                Debug.Log(rb.velocity);
+
                 rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
-                canJump = false;
             }
         }
     }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class StrongCharacter : CharacterControllerBase {
     public float carringSpeed;
-    public LayerMask rayLayer;
+    public LayerMask rayLayer = LayerMask.NameToLayer("Box");
     public GameObject currentObject;
     public Vector2 objectCarriedPosition;
-    public float rayLength;
+    public float rayLength = 1.0f;
     private bool isFirePressed;
     
     // Update is called once per frame
