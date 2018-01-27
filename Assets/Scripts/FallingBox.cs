@@ -7,7 +7,7 @@ public class FallingBox : MonoBehaviour {
 
     public Rigidbody2D rb;
 
-    public PressurePlate p;
+    public PressurePlate plate;
     // Use this for initialization
     void Start () {
         rb = this.GetComponent<Rigidbody2D>();
@@ -19,7 +19,7 @@ public class FallingBox : MonoBehaviour {
 	}
 
     public void Active() {
-        if(p.activated)
+        if(plate.activated)
             rb.gravityScale = 1;
     }
     public void OnCollisionEnter2D(Collision2D other) {
