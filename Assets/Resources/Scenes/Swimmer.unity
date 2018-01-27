@@ -180,7 +180,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4014552237881106, guid: ad842cb38a672944e97506dd7ca7e6f3, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.01745245
       objectReference: {fileID: 0}
     - target: {fileID: 4014552237881106, guid: ad842cb38a672944e97506dd7ca7e6f3, type: 2}
       propertyPath: m_LocalRotation.z
@@ -188,7 +188,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4014552237881106, guid: ad842cb38a672944e97506dd7ca7e6f3, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99984777
       objectReference: {fileID: 0}
     - target: {fileID: 4014552237881106, guid: ad842cb38a672944e97506dd7ca7e6f3, type: 2}
       propertyPath: m_RootOrder
@@ -203,6 +203,10 @@ Prefab:
         type: 2}
       propertyPath: gravityScaleOnWater
       value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014552237881106, guid: ad842cb38a672944e97506dd7ca7e6f3, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad842cb38a672944e97506dd7ca7e6f3, type: 2}

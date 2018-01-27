@@ -9,7 +9,6 @@ public class StrongCharacter : CharacterControllerBase {
     public Vector2 objectCarriedPosition;
     public float rayLength;
     private bool isFirePressed;
-
     
     // Update is called once per frame
     new void FixedUpdate() {

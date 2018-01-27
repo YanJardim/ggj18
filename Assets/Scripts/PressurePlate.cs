@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PressurePlate : MonoBehaviour {
-
-    // Use this for initialization
     public bool activated;
+
 	void Start () {
         activated = false;
 	}

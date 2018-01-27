@@ -3,16 +3,16 @@ using UnityEngine;
 public class CharacterControllerBase : MonoBehaviour {
     public float speed;
     public float facingDirection;
+    public float oldDirection;
     protected Rigidbody2D rb;
     protected bool possessed;
     private float oldSpeed;
-    private Vector2 lastPos;
 
     protected void Start() {
         possessed = false;
         rb = GetComponent<Rigidbody2D>();
         facingDirection = 1;
-        lastPos = transform.position;
+        oldDirection = 1;
     }
 
     public void Update() {
@@ -21,7 +21,6 @@ public class CharacterControllerBase : MonoBehaviour {
         }
 
         UpdateFacingDirection();
-        
     }
 
     public void FixedUpdate() {
@@ -53,6 +52,12 @@ public class CharacterControllerBase : MonoBehaviour {
 
     private void UpdateFacingDirection() {
         facingDirection = Input.GetAxisRaw("Horizontal") != 0 ? Input.GetAxisRaw("Horizontal") : facingDirection;
-        
+        if(oldDirection != facingDirection) {
+            // changed direction
+            Debug.Log("changed direction");
+            transform.Rotate(0, 180, 0, Space.World);
+        }
+
+        oldDirection = facingDirection;
     }
 }
