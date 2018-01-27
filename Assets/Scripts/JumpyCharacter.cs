@@ -1,19 +1,15 @@
 using UnityEngine;
 
 
-public class StrongCharacter : MonoBehaviour{
-
-    
+public class JumpyCharacter : Character{
     public float jumpHeight;
     public LayerMask groundMask;
     public Transform groundCheck;
-    private Rigidbody2D rb;
     private bool canJump;
 
-
-    private void Start() {
-         rb = GetComponent<Rigidbody2D>();
-         canJump = false;
+    private new void Start() {
+        base.Start();
+         canJump = true;
     }
 
     public void Update() {
@@ -27,7 +23,7 @@ public class StrongCharacter : MonoBehaviour{
 
     public bool isGrounded()
     {
-        bool result = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        bool result = Physics2D.Linecast(transform.position, groundCheck.position, 1 << groundMask);
 
         if (!result)
             canJump = true;

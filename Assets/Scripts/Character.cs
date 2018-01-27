@@ -4,7 +4,7 @@ public class Character : MonoBehaviour{
     public float speed;
     protected Rigidbody2D rb;
 
-    private void Start() {
+    protected void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
 

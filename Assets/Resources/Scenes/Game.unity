@@ -123,11 +123,11 @@ GameObject:
   - component: {fileID: 224592577}
   - component: {fileID: 224592576}
   - component: {fileID: 224592574}
-  - component: {fileID: 224592578}
   - component: {fileID: 224592573}
+  - component: {fileID: 224592578}
   - component: {fileID: 224592575}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Jumpy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,9 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 224592572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da7b0f9d50eacc84083413f890c654ca, type: 3}
+  m_Script: {fileID: 11500000, guid: d5afc567a2f215d4a90a1b0e24c78645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
   jumpHeight: 5
   groundMask:
     serializedVersion: 2
@@ -261,7 +262,7 @@ GameObject:
   - component: {fileID: 267698105}
   - component: {fileID: 267698103}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -449,7 +450,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1923051685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.516, z: 0}
+  m_LocalPosition: {x: 0, y: -0.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224592577}
