@@ -7,7 +7,7 @@ public class StrongCharacter : CharacterControllerBase {
     public LayerMask rayLayer;
     public GameObject currentObject;
     public Vector2 objectCarriedPosition;
-    public float rayLength;
+    public float rayLength = 1.0f;
     private bool isFirePressed;
     
     // Update is called once per frame
