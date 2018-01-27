@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpirtController : Character {
+public class SpiritController : Character {
    
     public void FixedUpdate() {
         
