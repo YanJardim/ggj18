@@ -2,19 +2,32 @@ using UnityEngine;
 
 public class CharacterControllerBase : MonoBehaviour {
     public float speed;
-    private float oldSpeed;
+    public float facingDirection;
     protected Rigidbody2D rb;
     protected bool possessed;
+    private float oldSpeed;
+    private Vector2 lastPos;
 
     protected void Start() {
         rb = GetComponent<Rigidbody2D>();
+        facingDirection = 1;
+        lastPos = transform.position;
+    }
+
+    public void Update() {
+        if (!possessed) {
+            return;
+        }
+
+        UpdateFacingDirection();
+        
     }
 
     public void FixedUpdate() {
-        if(!possessed) {
+        if (!possessed) {
             return;
         }
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
+        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y);
     }
 
     public void OnDestroy() {
@@ -35,5 +48,10 @@ public class CharacterControllerBase : MonoBehaviour {
     }
     protected void SpeedRevert() {
         speed = oldSpeed;
+    }
+
+    private void UpdateFacingDirection() {
+        facingDirection = Input.GetAxisRaw("Horizontal") != 0 ? Input.GetAxisRaw("Horizontal") : facingDirection;
+        
     }
 }
