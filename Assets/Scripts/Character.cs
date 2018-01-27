@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Character : MonoBehaviour{
+public class Character : MonoBehaviour {
     public float speed;
     protected Rigidbody2D rb;
 
@@ -10,6 +10,6 @@ public class Character : MonoBehaviour{
 
     public void FixedUpdate() {
         transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0);
-        
+
     }
 }
