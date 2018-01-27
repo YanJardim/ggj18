@@ -2,18 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrongCharacter : Character {
+public class StrongCharacter : CharacterControllerBase {
 
     public LayerMask rayLayer;
     public GameObject currentObject;
     public float rayLength;
     private bool isFirePressed;
-    
-
-    // Use this for initialization
-    void Start() {
-        
-    }
 
     // Update is called once per frame
     new void FixedUpdate() {
@@ -46,16 +40,17 @@ public class StrongCharacter : Character {
     }
 
     private void CarryObject() {
-        
         if(currentObject != null) {
+            currentObject.GetComponent<Rigidbody2D>().isKinematic = false;
             currentObject.transform.SetParent(null);
             currentObject = null;
-        }
-        else {
+        } else {
             RaycastHit2D hit = GetObjectInFront();
             if (hit.collider != null) {
                 currentObject = hit.collider.gameObject;
                 currentObject.transform.SetParent(transform);
+                currentObject.transform.localPosition = new Vector2(1.2f, 0.1f);
+                currentObject.GetComponent<Rigidbody2D>().isKinematic = true;
             }
         } 
     }
