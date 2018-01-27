@@ -9,6 +9,7 @@ public class CharacterControllerBase : MonoBehaviour {
     private Vector2 lastPos;
 
     protected void Start() {
+        possessed = false;
         rb = GetComponent<Rigidbody2D>();
         facingDirection = 1;
         lastPos = transform.position;
