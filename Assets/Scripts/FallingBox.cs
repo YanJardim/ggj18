@@ -23,7 +23,7 @@ public class FallingBox : MonoBehaviour {
             rb.gravityScale = 1;
     }
     public void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Player") {
+        if (other.gameObject.tag == "Character") {
             Debug.Log("Destroy");
             Destroy(other.gameObject);
         }
