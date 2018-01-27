@@ -7,6 +7,7 @@ public class CharacterControllerBase : MonoBehaviour {
     protected bool possessed;
 
     protected void Start() {
+        possessed = false;
         rb = GetComponent<Rigidbody2D>();
     }
 
