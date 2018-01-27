@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class JumpyCharacter : Character {
+public class JumpyCharacter : CharacterControllerBase {
     public float jumpHeight;
     public LayerMask groundMask;
     public Transform groundCheck;
@@ -12,7 +12,9 @@ public class JumpyCharacter : Character {
         canJump = true;
     }
 
-    public void Update() {
+    public new void FixedUpdate() {
+        base.FixedUpdate();
+
         if (isGrounded()) {
             if (Input.GetAxis("Fire1") != 0 && canJump) {
                 rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
