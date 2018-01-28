@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour {
 	public Activatable activatable;
+	public AudioSource click;
 
 	private bool isOnArea = false;
 	private bool toggle = false;
-
+	
 	void Update() {
 		if(isOnArea) {
 			if (Input.GetKeyDown(KeyCode.E)) {
 
 				if (!toggle) {
 					activatable.Activate();
+					click.Play();
 				} else {
 					activatable.Deactivate();
+					click.Play();
 					Debug.Log("Deactivate lever");
 				}
 
