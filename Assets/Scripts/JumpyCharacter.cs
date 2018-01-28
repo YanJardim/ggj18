@@ -11,6 +11,8 @@ public class JumpyCharacter : CharacterControllerBase {
     }
 
     public new void Update() {
+        base.Update();
+
         if (!possessed) {
             return;
         }

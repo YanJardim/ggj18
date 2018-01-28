@@ -11,6 +11,8 @@ public class StrongCharacter : CharacterControllerBase {
     private bool isFirePressed;
     private Rigidbody2D currentRB;
     new void Update() {
+        base.Update();
+
         if (!possessed) {
             return;
         }
