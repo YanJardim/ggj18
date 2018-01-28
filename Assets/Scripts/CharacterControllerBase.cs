@@ -13,6 +13,8 @@ public class CharacterControllerBase : MonoBehaviour {
 	private float timer;
     private Bounds bounds;
 
+    public float mass, staticMass;
+
     protected Altar altar;
 	
     protected void Start() {
@@ -24,7 +26,14 @@ public class CharacterControllerBase : MonoBehaviour {
 
 		if(gameObject.tag == "Character") {
 			GameManager.Instance.alive++;
-		}
+
+            if (possessed) {
+                rb.mass = mass;
+            } else {
+                rb.mass = staticMass;
+            }
+        }
+
 		anim = GetComponent<Animator>();
 		timer = 0;
     }
@@ -54,6 +63,7 @@ public class CharacterControllerBase : MonoBehaviour {
 
     public void Depossess() {
         possessed = false;
+        rb.mass = staticMass;
 
         rb.velocity = new Vector2(0, rb.velocity.y);
 
@@ -71,8 +81,10 @@ public class CharacterControllerBase : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Spirit") {
-            if(other.gameObject.GetComponent<SpiritController>().possessionCooldown >= 0)
+            if(other.gameObject.GetComponent<SpiritController>().possessionCooldown >= 0) {
                 possessed = true;
+                rb.mass = mass;
+            }
         }
 
 		if (other.gameObject.tag == "FatalObject" && gameObject.tag == "Character") {
