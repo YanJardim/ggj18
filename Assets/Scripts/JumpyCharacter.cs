@@ -17,8 +17,8 @@ public class JumpyCharacter : CharacterControllerBase {
             return;
         }
 
-        if (isGrounded()) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (isGrounded()) {
                 Debug.Log(rb.velocity);
 
                 rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
