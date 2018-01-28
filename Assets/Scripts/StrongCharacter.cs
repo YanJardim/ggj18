@@ -62,11 +62,14 @@ public class StrongCharacter : CharacterControllerBase {
     }
 
     private void UnselectObject() {
-        currentObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        //currentObject.GetComponent<Rigidbody2D>().isKinematic = false;
         currentObject.transform.SetParent(null);
         currentObject = null;
+
         currentRB.gravityScale = 1;
+        currentRB.velocity = new Vector2(0, rb.velocity.y);
         currentRB = null;
+
         SpeedRevert();
     }
 
