@@ -11,6 +11,8 @@ public class StrongCharacter : CharacterControllerBase {
     private bool isFirePressed;
     private Rigidbody2D currentRB;
 	private bool isPushing;
+	public AudioSource grab;
+
     new void Update() {
 		isPushing = false;
         base.Update();
@@ -57,6 +59,7 @@ public class StrongCharacter : CharacterControllerBase {
         if (currentObject != null) {
             UnselectObject();
         } else {
+			grab.Play();
             RaycastHit2D hit = GetObjectInFront();
             if (hit.collider != null) {
                 SelectObject(hit.collider.gameObject);

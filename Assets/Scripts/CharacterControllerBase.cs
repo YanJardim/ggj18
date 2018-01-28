@@ -10,7 +10,9 @@ public class CharacterControllerBase : MonoBehaviour {
     protected bool possessed;
 	protected Animator anim;
     private float oldSpeed;
-	private float timer;
+
+	protected float timer;
+
     private Bounds bounds;
 
     public float mass, staticMass;
