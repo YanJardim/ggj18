@@ -24,9 +24,15 @@ public class Lever : MonoBehaviour {
 		}
 	}
 
-	public void OnTriggerEnter2D(Collider2D other) { 
+	public void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag != "Character")
+            return;
 
-		isOnArea = true;
+        if (!other.GetComponent<CharacterControllerBase>().possessed) {
+            Debug.Log("not possessed");
+            return;
+        }
+        isOnArea = true;
 		Debug.Log("On lever");
 	}
 	public void OnTriggerExit2D(Collider2D other) {
