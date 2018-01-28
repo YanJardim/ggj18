@@ -27,21 +27,11 @@ public class CharacterControllerBase : MonoBehaviour {
             return;
         }
 
-       /* if (altar && Input.GetKeyDown(KeyCode.E)) {
-            Debug.Log("Alter Try Use");
-            if (altar.Use()) {
-                Depossess();
-            }
-        }*/
+        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y);
+
         UpdateFacingDirection();
     }
-
-    public void FixedUpdate() {
-        if (!possessed) {
-            return;
-        }
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y);
-    }
+    
 
     public void Depossess() {
         possessed = false;

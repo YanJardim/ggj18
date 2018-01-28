@@ -10,14 +10,13 @@ public class JumpyCharacter : CharacterControllerBase {
         canJump = true;
     }
 
-    public new void FixedUpdate() {
-        base.FixedUpdate();
-
+    public new void Update() {
         if (!possessed) {
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
+            Debug.Log("jump pressed");
             if (isGrounded()) {
                 Debug.Log(rb.velocity);
 

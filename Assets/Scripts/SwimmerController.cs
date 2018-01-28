@@ -7,7 +7,7 @@ public class SwimmerController : CharacterControllerBase {
     bool onWater;
     public float gravityScaleOnWater;
 
-    public new void FixedUpdate() {
+    public new void Update() {
         if (onWater) {
             if (!possessed) {
                 return;
@@ -15,7 +15,7 @@ public class SwimmerController : CharacterControllerBase {
             rb.velocity += new Vector2(Input.GetAxis("Horizontal") * speedOnWater,
                         Input.GetAxis("Vertical") * speedOnWater);
         } else {
-            base.FixedUpdate();
+            base.Update();
         }
     }
     
