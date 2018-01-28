@@ -24,14 +24,14 @@ public class FallingBox : Activatable {
             Vector3 contactPoint = collision.contacts[0].point;
             Vector3 center = collider.bounds.center;
 
-            //bool right = contactPoint.x > center.x;
+            bool right = contactPoint.x > center.x;
             bool top = contactPoint.y > center.y;
-
-            if (Mathf.Abs(rb.velocity.y) >= 5 && !top) {
+            // if(Mathf.Abs(rb.velocity.y) >= 5)
+            if (top) {
                 Debug.Log("Destroy");
                 Destroy(collision.gameObject);
             } else {
-                Debug.Log("Weak FallingBox Hit");
+                Debug.Log("Weak FallingBox Hit. top = " + top + " right = " + right);
             }
         }
     }
