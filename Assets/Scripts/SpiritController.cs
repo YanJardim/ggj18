@@ -44,11 +44,8 @@ public class SpiritController : CharacterControllerBase {
     }
 
 	public void OnEnable() {
-		if (rb != null)
-			rb.AddForce(Vector2.up * 20);
-		//rb.velocity = new Vector2(0f, 1000f);
-
 		possessionCD = possessionCooldown;
+
 		if (col != null)
 			col.enabled = false;
 	}
