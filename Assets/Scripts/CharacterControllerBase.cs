@@ -8,9 +8,11 @@ public class CharacterControllerBase : MonoBehaviour {
     public float offset;
     protected Rigidbody2D rb;
     protected bool possessed;
-    private float oldSpeed;
 	protected Animator anim;
+    private float oldSpeed;
+
 	protected float timer;
+
     private Bounds bounds;
 
     public float mass, staticMass;
