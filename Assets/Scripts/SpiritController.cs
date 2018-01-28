@@ -31,37 +31,31 @@ public class SpiritController : CharacterControllerBase {
 	}
 
 	public new void Update() {
-		if (Cooldown(ref possessionCD)) {
-			col.enabled = true;
-		}
-		if (possessionCD > 0) {
-			rb.AddForce(Vector2.up * depossessSpeed * (possessionCD / possessionCooldown));
-		}
+        if (Cooldown(ref possessionCD)) {
+            col.enabled = true;
+        }
 
-	}
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed,
+                                    Input.GetAxis("Vertical") * speed);
+        if (possessionCD > 0) {
+            rb.AddForce(Vector2.up * depossessSpeed * (possessionCD / possessionCooldown));
+        }
+
+    }
 
 	public void OnEnable() {
-		if (rb != null)
-			rb.AddForce(Vector2.up * 20);
-		//rb.velocity = new Vector2(0f, 1000f);
-
 		possessionCD = possessionCooldown;
+
 		if (col != null)
 			col.enabled = false;
 	}
 
-	public new void FixedUpdate() {
-		rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed,
-									Input.GetAxis("Vertical") * speed);
-	}
-
-	void OnCollisionEnter2D(Collision2D other) {                               
-		Debug.Log("collided");
-		if (possessionCD > 0) {
-			return;
-		}
-		if (other.gameObject.tag == "Character") {
-			gameObject.SetActive(false);
-		}
-	}
+    void OnCollisionEnter2D(Collision2D other) {
+        if (possessionCD > 0) {
+            return;
+        }
+        if (other.gameObject.tag == "Character") {
+            gameObject.SetActive(false);
+        }
+    }
 }

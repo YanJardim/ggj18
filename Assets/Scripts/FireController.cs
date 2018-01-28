@@ -4,18 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FireController : Timer {
-	private BoxCollider2D box;
-
-	// Use this for initialization
-	void Start () {
-		box = gameObject.GetComponent<BoxCollider2D>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public override void Activate() {
 		startTimer();
 	}

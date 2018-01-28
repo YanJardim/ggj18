@@ -17,11 +17,19 @@ public class FallingBox : Activatable {
     public override void Deactivate() {
     }
 
-    public void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Character") {
-            if (rb.velocity.y <= -5) {
+    public void OnCollisionEnter2D(Collision2D collision) {
+        Collider2D collider = collision.collider;
+
+        if (collision.gameObject.tag == "Character") {
+            Vector3 contactPoint = collision.contacts[0].point;
+            Vector3 center = collider.bounds.center;
+
+            //bool right = contactPoint.x > center.x;
+            bool top = contactPoint.y > center.y;
+
+            if (Mathf.Abs(rb.velocity.y) >= 5 && !top) {
                 Debug.Log("Destroy");
-                Destroy(other.gameObject);
+                Destroy(collision.gameObject);
             } else {
                 Debug.Log("Weak FallingBox Hit");
             }

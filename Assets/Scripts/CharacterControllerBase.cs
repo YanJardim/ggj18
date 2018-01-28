@@ -54,6 +54,9 @@ public class CharacterControllerBase : MonoBehaviour {
 
     public void Depossess() {
         possessed = false;
+
+        rb.velocity = new Vector2(0, rb.velocity.y);
+
         GameManager.Instance.SpawnSpirit(transform.position);
     }
 
@@ -74,7 +77,7 @@ public class CharacterControllerBase : MonoBehaviour {
     }
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if(other.gameObject.tag == "FatalObject") {
+		if(other.gameObject.tag == "FatalObject" && tag != "Spirit") {
 			Destroy(gameObject);
 		}
 	}
