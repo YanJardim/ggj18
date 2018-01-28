@@ -9,11 +9,12 @@ public class CharacterControllerBase : MonoBehaviour {
     protected Rigidbody2D rb;
     protected bool possessed;
     private float oldSpeed;
-
+	private Animator anim;
+	private float timer;
     private Bounds bounds;
 
     protected Altar altar;
-
+	
     protected void Start() {
         possessed = false;
         altar = null;
@@ -24,6 +25,8 @@ public class CharacterControllerBase : MonoBehaviour {
 		if(gameObject.tag == "Character") {
 			GameManager.Instance.alive++;
 		}
+		anim = GetComponent<Animator>();
+		timer = 0;
     }
 
     public void Update() {
@@ -34,11 +37,26 @@ public class CharacterControllerBase : MonoBehaviour {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y);
 
         UpdateFacingDirection();
+
+		if (anim == null) return;
+		
+		if(Input.GetAxisRaw("Horizontal") != 0) {
+			anim.SetBool("Walk", true);
+		} else {
+			timer += Time.deltaTime;
+			if (timer >= 0.2f) {
+				anim.SetBool("Walk", false);
+				timer = 0;
+			}
+		}
     }
     
 
     public void Depossess() {
         possessed = false;
+
+        rb.velocity = new Vector2(0, rb.velocity.y);
+
         GameManager.Instance.SpawnSpirit(transform.position);
     }
 
@@ -58,13 +76,8 @@ public class CharacterControllerBase : MonoBehaviour {
         }
 
 		if (other.gameObject.tag == "FatalObject" && gameObject.tag == "Character") {
-			print("destroe");
 			Destroy(gameObject);
 		}
-	}
-
-	void OnTriggerEnter2D(Collider2D other) {
-		
 	}
 
     protected void SpeedChange(float newSpeed) {
