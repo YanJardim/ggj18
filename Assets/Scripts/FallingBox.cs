@@ -23,8 +23,8 @@ public class FallingBox : Activatable {
         if (collision.gameObject.tag == "Character") {
             Vector3 contactPoint = collision.contacts[0].point;
             Vector3 center = collider.bounds.center;
-            
-            bool bot = contactPoint.y < center.y -1;
+
+            bool bot = contactPoint.y > center.y -1;
             // if(Mathf.Abs(rb.velocity.y) >= 5)
             Debug.Log(contactPoint + " " + center);
             if (bot) {
