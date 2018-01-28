@@ -1196,6 +1196,11 @@ Prefab:
       propertyPath: m_TagString
       value: FatalObject
       objectReference: {fileID: 0}
+    - target: {fileID: 114645830564009514, guid: dabb7e78dc203434a99a15a8f93f6df4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61505179751205114, guid: dabb7e78dc203434a99a15a8f93f6df4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: dabb7e78dc203434a99a15a8f93f6df4, type: 2}
@@ -1670,6 +1675,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1279212243 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1896077468038788, guid: dabb7e78dc203434a99a15a8f93f6df4,
+    type: 2}
+  m_PrefabInternal: {fileID: 690012752}
+--- !u!114 &1279212244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279212243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89754e430b417fe4789474cc4cba5890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleTimer: 0.7
 --- !u!1 &1437141573
 GameObject:
   m_ObjectHideFlags: 0
