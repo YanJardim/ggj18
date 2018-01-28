@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FallingBox : Activatable {
+    protected Rigidbody2D rb;
 
-    public Rigidbody2D rb;
-
-    public PressurePlate plate;
     // Use this for initialization
     void Start () {
         rb = this.GetComponent<Rigidbody2D>();

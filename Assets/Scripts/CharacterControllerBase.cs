@@ -4,9 +4,13 @@ public class CharacterControllerBase : MonoBehaviour {
     public float speed;
     public float facingDirection;
     public float oldDirection;
+    public LayerMask groundMask;
+    public float offset;
     protected Rigidbody2D rb;
     protected bool possessed;
     private float oldSpeed;
+
+    private Bounds bounds;
 
     protected Altar altar;
 
@@ -89,5 +93,15 @@ public class CharacterControllerBase : MonoBehaviour {
         }
 
         oldDirection = facingDirection;
+    }
+
+    public bool isGrounded()
+    {
+        bounds = gameObject.GetComponent<BoxCollider2D>().bounds;
+
+        Debug.DrawLine(new Vector2(bounds.min.x, bounds.min.y- offset), new Vector2(bounds.max.x, bounds.min.y - offset), Color.yellow);
+        bool result = Physics2D.Linecast(new Vector2(bounds.min.x, bounds.min.y - offset), new Vector2(bounds.max.x, bounds.min.y - offset), groundMask);
+
+        return result;
     }
 }
