@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
             ResetLevel();
         }
 		if(alive == 0) {
-			ResetLevel();
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
     }
 
