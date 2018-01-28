@@ -6,14 +6,20 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance;
     public GameObject spirit;
 
+	public int alive = 0;
+
     public void ResetLevel() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Update() {
+
         if(Input.GetKeyDown(KeyCode.R)){
             ResetLevel();
         }
+		if(alive == 0) {
+			ResetLevel();
+		}
     }
 
     public void Awake() {

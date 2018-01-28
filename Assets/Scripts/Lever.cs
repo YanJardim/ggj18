@@ -16,6 +16,7 @@ public class Lever : MonoBehaviour {
 					activatable.Activate();
 				} else {
 					activatable.Deactivate();
+					Debug.Log("Deactivate lever");
 				}
 
 				toggle = !toggle;

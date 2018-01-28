@@ -20,6 +20,10 @@ public class CharacterControllerBase : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         facingDirection = 1;
         oldDirection = 1;
+
+		if(gameObject.tag == "Character") {
+			GameManager.Instance.alive++;
+		}
     }
 
     public void Update() {
@@ -39,6 +43,9 @@ public class CharacterControllerBase : MonoBehaviour {
     }
 
     public void OnDestroy() {
+		if (gameObject.tag == "Character")
+			GameManager.Instance.alive--;
+
         if (possessed) {
             Depossess();
         }
@@ -50,6 +57,12 @@ public class CharacterControllerBase : MonoBehaviour {
                 possessed = true;
         }
     }
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if(other.gameObject.tag == "FatalObject") {
+			Destroy(gameObject);
+		}
+	}
 
     protected void SpeedChange(float newSpeed) {
         oldSpeed = speed;
