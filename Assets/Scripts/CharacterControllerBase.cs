@@ -10,11 +10,11 @@ public class CharacterControllerBase : MonoBehaviour {
     protected bool possessed;
     private float oldSpeed;
 	private Animator anim;
-
+	private float timer;
     private Bounds bounds;
 
     protected Altar altar;
-
+	
     protected void Start() {
         possessed = false;
         altar = null;
@@ -26,6 +26,7 @@ public class CharacterControllerBase : MonoBehaviour {
 			GameManager.Instance.alive++;
 		}
 		anim = GetComponent<Animator>();
+		timer = 0;
     }
 
     public void Update() {
@@ -38,11 +39,15 @@ public class CharacterControllerBase : MonoBehaviour {
         UpdateFacingDirection();
 
 		if (anim == null) return;
-
+		
 		if(Input.GetAxisRaw("Horizontal") != 0) {
-			anim.SetTrigger("TriggerWalk");
+			anim.SetBool("Walk", true);
 		} else {
-			anim.SetTrigger("TriggerIdle");
+			timer += Time.deltaTime;
+			if (timer >= 0.2f) {
+				anim.SetBool("Walk", false);
+				timer = 0;
+			}
 		}
     }
     
