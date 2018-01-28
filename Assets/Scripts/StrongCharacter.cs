@@ -10,7 +10,9 @@ public class StrongCharacter : CharacterControllerBase {
     public float rayLength = 1.0f;
     private bool isFirePressed;
     private Rigidbody2D currentRB;
+	private bool isPushing;
     new void Update() {
+		isPushing = false;
         base.Update();
 
         if (!possessed) {
@@ -36,12 +38,13 @@ public class StrongCharacter : CharacterControllerBase {
                 CarryObject();
                 Debug.Log(isFirePressed);
                 isFirePressed = true;
-            }
+				
+			}
         }
         if (Input.GetAxisRaw("Fire1") == 0) {
             isFirePressed = false;
-        }
-    }
+        }		
+	}
 
     private RaycastHit2D GetObjectInFront() {
         return Physics2D.Raycast(transform.position,
@@ -70,7 +73,10 @@ public class StrongCharacter : CharacterControllerBase {
         currentRB.velocity = new Vector2(0, rb.velocity.y);
         currentRB = null;
 
-        SpeedRevert();
+		isPushing = !isPushing;
+		SetPush(false);
+
+		SpeedRevert();
     }
 
     private void SelectObject(GameObject obj) {
@@ -80,8 +86,18 @@ public class StrongCharacter : CharacterControllerBase {
                                                             objectCarriedPosition.y);
         currentRB = currentObject.GetComponent<Rigidbody2D>();
         currentRB.gravityScale = 0;
-        //currentObject.GetComponent<Rigidbody2D>().isKinematic = true;
-        SpeedChange(carringSpeed);
+		//currentObject.GetComponent<Rigidbody2D>().isKinematic = true;
+
+		isPushing = !isPushing;
+		SetPush(true);
+
+		SpeedChange(carringSpeed);
     }
+
+	public void SetPush(bool push) {
+		anim.SetBool("Walk", !push);
+		anim.SetBool("Push", push);
+	}
+
 
 }

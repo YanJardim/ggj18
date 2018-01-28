@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 212795800618161024}
   - component: {fileID: 50343277409688670}
   - component: {fileID: 114112678096996246}
-  - component: {fileID: 61169672783641062}
+  - component: {fileID: 61688620170879088}
+  - component: {fileID: 95996562115587936}
   m_Layer: 0
   m_Name: StrongS
   m_TagString: Character
@@ -37,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1954726396961882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.072, y: -1.1070001, z: 0.011}
-  m_LocalScale: {x: 1.1047069, y: 1.2085228, z: 1}
+  m_LocalPosition: {x: -7.69, y: -0.63, z: 0.011}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,7 +64,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61169672783641062
+--- !u!61 &61688620170879088
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,19 +76,36 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.018628597, y: -0.33057928}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 10.24, y: 10.24}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8.103431, y: 9.578841}
   m_EdgeRadius: 0
+--- !u!95 &95996562115587936
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954726396961882}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5965242c69e49144ab7ab1b0d224d1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114112678096996246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,8 +131,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   currentObject: {fileID: 0}
-  objectCarriedPosition: {x: 1.4, y: 0.3}
-  rayLength: 1
+  objectCarriedPosition: {x: 9, y: 0}
+  rayLength: 1.4
 --- !u!212 &212795800618161024
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -149,8 +167,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d7ea3231b5c6fe644b2beb2c324426e8, type: 3}
-  m_Color: {r: 0, g: 0.25517225, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3e538bd058055c34a903997085b82556, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
