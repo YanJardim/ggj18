@@ -7,7 +7,7 @@ public class CharacterControllerBase : MonoBehaviour {
     public LayerMask groundMask;
     public float offset;
     protected Rigidbody2D rb;
-    protected bool possessed;
+    public bool possessed;
 	protected Animator anim;
     private float oldSpeed;
 
