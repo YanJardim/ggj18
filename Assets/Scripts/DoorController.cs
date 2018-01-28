@@ -12,7 +12,8 @@ public class DoorController : Activatable {
 	}
 
 	public override void Deactivate() {
-		throw new NotImplementedException();
+		rb.gravityScale = 0;
+		rb.AddForce(Vector2.up * 100);
 	}
 
 	// Use this for initialization
