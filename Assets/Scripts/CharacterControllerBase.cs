@@ -56,12 +56,15 @@ public class CharacterControllerBase : MonoBehaviour {
             if(other.gameObject.GetComponent<SpiritController>().possessionCooldown >= 0)
                 possessed = true;
         }
-    }
 
-	void OnTriggerEnter2D(Collider2D other) {
-		if(other.gameObject.tag == "FatalObject") {
+		if (other.gameObject.tag == "FatalObject" && gameObject.tag == "Character") {
+			print("destroe");
 			Destroy(gameObject);
 		}
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		
 	}
 
     protected void SpeedChange(float newSpeed) {
