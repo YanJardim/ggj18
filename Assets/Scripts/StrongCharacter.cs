@@ -9,6 +9,7 @@ public class StrongCharacter : CharacterControllerBase {
     public Vector2 objectCarriedPosition;
     public float rayLength = 1.0f;
     private bool isFirePressed;
+    private Rigidbody2D currentRB;
     
     // Update is called once per frame
     new void FixedUpdate() {
@@ -19,6 +20,10 @@ public class StrongCharacter : CharacterControllerBase {
         }
 
         GetInput();
+        
+        if(currentRB != null){
+            currentRB.velocity = rb.velocity;
+        }
     }
 
     private void GetInput() {
@@ -60,6 +65,8 @@ public class StrongCharacter : CharacterControllerBase {
         currentObject.GetComponent<Rigidbody2D>().isKinematic = false;
         currentObject.transform.SetParent(null);
         currentObject = null;
+        currentRB.gravityScale = 1;
+        currentRB = null;
         SpeedRevert();
     }
 
@@ -68,7 +75,9 @@ public class StrongCharacter : CharacterControllerBase {
         currentObject.transform.SetParent(transform);
         currentObject.transform.localPosition = new Vector2(objectCarriedPosition.x, 
                                                             objectCarriedPosition.y);
-        currentObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        currentRB = currentObject.GetComponent<Rigidbody2D>();
+        currentRB.gravityScale = 0;
+        //currentObject.GetComponent<Rigidbody2D>().isKinematic = true;
         SpeedChange(carringSpeed);
     }
 
