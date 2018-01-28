@@ -27,12 +27,12 @@ public class CharacterControllerBase : MonoBehaviour {
             return;
         }
 
-        if (altar && Input.GetKeyDown(KeyCode.E)) {
+       /* if (altar && Input.GetKeyDown(KeyCode.E)) {
             Debug.Log("Alter Try Use");
             if (altar.Use()) {
                 Depossess();
             }
-        }
+        }*/
         UpdateFacingDirection();
     }
 
@@ -51,20 +51,6 @@ public class CharacterControllerBase : MonoBehaviour {
     public void OnDestroy() {
         if (possessed) {
             Depossess();
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Altar") {
-            altar = other.gameObject.GetComponent<Altar>();
-            Debug.Log("entered altar");
-        }
-    }
-    
-    void OnTriggerExit2D(Collider2D other) {
-        if (other.gameObject.tag == "Altar") {
-            altar = null;
-            Debug.Log("exited altar");
         }
     }
 
