@@ -9,6 +9,7 @@ public class CharacterControllerBase : MonoBehaviour {
     protected Rigidbody2D rb;
     protected bool possessed;
     private float oldSpeed;
+	private Animator anim;
 
     private Bounds bounds;
 
@@ -24,6 +25,7 @@ public class CharacterControllerBase : MonoBehaviour {
 		if(gameObject.tag == "Character") {
 			GameManager.Instance.alive++;
 		}
+		anim = GetComponent<Animator>();
     }
 
     public void Update() {
@@ -34,6 +36,14 @@ public class CharacterControllerBase : MonoBehaviour {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y);
 
         UpdateFacingDirection();
+
+		if (anim == null) return;
+
+		if(Input.GetAxisRaw("Horizontal") != 0) {
+			anim.SetTrigger("TriggerWalk");
+		} else {
+			anim.SetTrigger("TriggerIdle");
+		}
     }
     
 
