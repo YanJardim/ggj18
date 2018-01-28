@@ -9,8 +9,8 @@ public class CharacterControllerBase : MonoBehaviour {
     protected Rigidbody2D rb;
     protected bool possessed;
     private float oldSpeed;
-	private Animator anim;
-	private float timer;
+	protected Animator anim;
+	protected float timer;
     private Bounds bounds;
 
     public float mass, staticMass;

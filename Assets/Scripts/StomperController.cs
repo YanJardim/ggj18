@@ -8,6 +8,7 @@ public class StomperController : Timer {
 	private Rigidbody2D rb;
 	private Bounds bounds;
 	private GameObject player;
+	private AudioSource stomp;
 
 	public bool isElevator = false;
 
@@ -28,9 +29,12 @@ public class StomperController : Timer {
 		if (isElevator)
 			rb.velocity = forceUp * Vector2.up;
 		rb.AddForce(Vector2.down * forceDown);
+
+		if(!isElevator) stomp.Play();
 	}
 
 	public override void lastAction() {
+		
 		rb.AddForce(Vector2.up * forceUp);
 	}
 
@@ -38,6 +42,7 @@ public class StomperController : Timer {
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		bounds = GetComponent<BoxCollider2D>().bounds;
+		stomp = GetComponent<AudioSource>();
 
 		if (!isElevator)
 			startTimer();
