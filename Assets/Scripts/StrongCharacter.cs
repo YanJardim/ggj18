@@ -10,18 +10,18 @@ public class StrongCharacter : CharacterControllerBase {
     public float rayLength = 1.0f;
     private bool isFirePressed;
     private Rigidbody2D currentRB;
-    
-    // Update is called once per frame
-    new void FixedUpdate() {
-        base.FixedUpdate();
+    new void Update() {
+        base.Update();
 
         if (!possessed) {
             return;
         }
 
         GetInput();
-        
-        if(currentRB != null){
+    }
+
+    void FixedUpdate() {
+        if (currentRB != null) {
             currentRB.velocity = rb.velocity;
         }
     }
@@ -51,14 +51,14 @@ public class StrongCharacter : CharacterControllerBase {
     }
 
     private void CarryObject() {
-        if(currentObject != null) {
+        if (currentObject != null) {
             UnselectObject();
         } else {
             RaycastHit2D hit = GetObjectInFront();
             if (hit.collider != null) {
                 SelectObject(hit.collider.gameObject);
             }
-        } 
+        }
     }
 
     private void UnselectObject() {
@@ -73,7 +73,7 @@ public class StrongCharacter : CharacterControllerBase {
     private void SelectObject(GameObject obj) {
         currentObject = obj;
         currentObject.transform.SetParent(transform);
-        currentObject.transform.localPosition = new Vector2(objectCarriedPosition.x, 
+        currentObject.transform.localPosition = new Vector2(objectCarriedPosition.x,
                                                             objectCarriedPosition.y);
         currentRB = currentObject.GetComponent<Rigidbody2D>();
         currentRB.gravityScale = 0;

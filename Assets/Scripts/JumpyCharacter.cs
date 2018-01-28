@@ -10,15 +10,16 @@ public class JumpyCharacter : CharacterControllerBase {
         canJump = true;
     }
 
-    public new void FixedUpdate() {
-        base.FixedUpdate();
+    public new void Update() {
+        base.Update();
 
         if (!possessed) {
             return;
         }
 
-        if (isGrounded()) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Debug.Log("jump pressed");
+            if (isGrounded()) {
                 Debug.Log(rb.velocity);
 
                 rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);

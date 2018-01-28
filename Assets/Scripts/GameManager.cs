@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SpawnSpirit(Vector2 position) {
-        spirit.transform.position = position;
-        spirit.SetActive(true);
+        if(spirit != null) {
+            spirit.transform.position = position;
+            spirit.SetActive(true);
+        }
     }
 }
