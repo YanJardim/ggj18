@@ -86,10 +86,8 @@ public class CharacterControllerBase : MonoBehaviour {
                 rb.mass = mass;
             }
         }
-    }
 
-	void OnTriggerEnter2D(Collider2D other) {
-		if(other.gameObject.tag == "FatalObject" && tag != "Spirit") {
+		if (other.gameObject.tag == "FatalObject" && gameObject.tag == "Character") {
 			Destroy(gameObject);
 		}
 	}
