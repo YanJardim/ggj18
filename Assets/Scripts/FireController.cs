@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FireController : Timer {
 	public List<GameObject> childrens;
+	public SpriteRenderer lever;
 
 	private void Start() {
 		foreach(Transform c in transform) {
@@ -16,11 +17,13 @@ public class FireController : Timer {
 	public override void Activate() {
 		startTimer();
 		SetFogosOnline(true);
+		lever.flipX = true;
 	}
 
 	public override void Deactivate() {
 		stopTimer();
 		SetFogosOnline(false);
+		lever.flipX = false;
 	}
 
 	public override void firstAction() {
