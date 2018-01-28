@@ -34,10 +34,13 @@ public class SpiritController : CharacterControllerBase {
         if(Cooldown(ref possessionCD)) {
             col.enabled = true;
         }
-        if(possessionCD > 0) {
+
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed,
+                                    Input.GetAxis("Vertical") * speed);
+
+        if (possessionCD > 0) {
             rb.AddForce(Vector2.up * depossessSpeed * (possessionCD / possessionCooldown));
         }
-
     }
 
     public void OnEnable() {
@@ -48,11 +51,6 @@ public class SpiritController : CharacterControllerBase {
         possessionCD = possessionCooldown;
         if(col != null)
             col.enabled = false;
-    }
-
-    public new void FixedUpdate() {
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed,
-                                    Input.GetAxis("Vertical") * speed);
     }
 
     void OnCollisionEnter2D(Collision2D other) {
